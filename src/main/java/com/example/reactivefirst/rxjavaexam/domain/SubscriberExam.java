@@ -4,7 +4,9 @@ package com.example.reactivefirst.rxjavaexam.domain;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class SubscriberExam {
     private final Observer<String> subscriber = new Observer<>() {
         @Override
@@ -16,17 +18,17 @@ public class SubscriberExam {
 
         @Override
         public void onNext(@NonNull String s) {
-            System.out.println(s);
+            log.debug(s);
         }
 
         @Override
         public void onError(Throwable t) {
-            System.err.println(t);
+            log.error("error : {}", t.getMessage());
         }
 
         @Override
         public void onComplete() {
-            System.out.println("Done");
+            log.debug("Done");
         }
     };
 
