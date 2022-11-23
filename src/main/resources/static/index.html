@@ -18,7 +18,8 @@
     document.querySelector(".events").appendChild(el);
   }
 
-  const eventSource = new EventSource("/temperature-stream");
+  const eventSource = new EventSource("/temperature-stream2");
+  // const eventSource = new EventSource("/temperature-stream");
 
   eventSource.onmessage = e => {
     const data = JSON.parse(e.data);
